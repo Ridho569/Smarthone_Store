@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cardview/product_list.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class Menu {
   const Menu({this.title, this.icon});
 
@@ -45,6 +47,9 @@ const List<Menu> menus = const [
   const Menu(title: "Oppo", icon: "assets/oppo.png"),
   const Menu(title: "Vivo", icon: "assets/vivo.png"),
   const Menu(title: "Infinix", icon: "assets/infinix.png"),
+  const Menu(title: "Realme", icon: "assets/realme.png"),
+  const Menu(title: "Huawei", icon: "assets/huawei.png"),
+  const Menu(title: "Asus", icon: "assets/asus.png"),
 ];
 
 class MenuCard extends StatelessWidget {
@@ -58,8 +63,14 @@ class MenuCard extends StatelessWidget {
       color: Colors.white,
       child: InkWell(
         onTap: () {
-          _showDialog(context, menu);
-        },
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ProductList()
+          ),
+        );
+      },
+
         child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,3 +110,4 @@ class MenuCard extends StatelessWidget {
 
 
 }
+
